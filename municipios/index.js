@@ -1,13 +1,13 @@
 let procura = new URLSearchParams(location.search)
-document.title = "Municípios do UF"
 uf = procura.get("uf")
+document.title = `Municípios do UF ${uf}`
 
 const body = document.getElementById("body")
 
 async function BuscarImagem(){
     const ufEstado = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}`)
     const dadosEstado = await ufEstado.json()
-    
+     
     let texto = document.getElementById("texto")
     texto.innerHTML = dadosEstado.nome
 
